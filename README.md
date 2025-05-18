@@ -4,6 +4,9 @@ This repository contains a minimal example of a React frontend and FastAPI backe
 The frontend uses Tailwind CSS for styling. The backend exposes a JSON API
 that the frontend consumes.
 
+The API now includes an additional `/api/time` endpoint that returns the
+current server time in ISO format. The frontend displays this value on load.
+
 ## Requirements
 - Node.js and npm (for the frontend)
 - Python 3.11 (for the backend)
@@ -28,6 +31,12 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
+
+To run the backend tests:
+
+```bash
+python -m unittest
 ```
 
 ### Frontend
