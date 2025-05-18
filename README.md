@@ -1,8 +1,9 @@
 # School Website
 
-This repository contains a minimal example of a React frontend and FastAPI backend.
-The frontend uses Tailwind CSS for styling. The backend exposes a JSON API
-that the frontend consumes.
+This repository contains a minimal example of a React frontend, a Next.js
+frontend, and a FastAPI backend. The React app uses Tailwind CSS for styling.
+The Next.js app demonstrates server-side rendering. Both frontends consume the
+JSON API exposed by the backend.
 
 ## Requirements
 - Node.js and npm (for the frontend)
@@ -10,14 +11,14 @@ that the frontend consumes.
 - Docker and docker-compose (optional)
 
 ## Running with Docker
-To start both the backend and frontend using Docker:
+To start the backend, React frontend and Next.js frontend using Docker:
 
 ```bash
 docker-compose up --build
 ```
 
-The frontend will be available at http://localhost:3000 and the backend at
-http://localhost:8000.
+The React app will be available at http://localhost:3000, the Next.js app at
+http://localhost:3001 and the backend at http://localhost:8000.
 
 ## Running manually
 
@@ -37,5 +38,12 @@ npm install
 npm start
 ```
 
-The frontend development server will proxy API requests to the backend if you
-configure a proxy or adjust the fetch URL accordingly.
+### Next.js Frontend
+```bash
+cd nextjs
+npm install
+npm run dev
+```
+
+The development servers for the frontends can proxy API requests to the backend
+if you configure a proxy or adjust the fetch URLs accordingly.
