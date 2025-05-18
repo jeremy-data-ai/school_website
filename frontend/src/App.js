@@ -6,6 +6,7 @@ import { fetchMessage } from './api';
 
 function App() {
   const [message, setMessage] = useState('');
+  const [time, setTime] = useState('');
 
   useEffect(() => {
 
@@ -17,6 +18,11 @@ function App() {
       .then((data) => setMessage(data.message))
 
       .catch((err) => console.error('Error fetching message', err));
+
+    fetch('/api/time')
+      .then((res) => res.json())
+      .then((data) => setTime(data.time))
+      .catch((err) => console.error('Error fetching time', err));
   }, []);
 
   return (
@@ -26,6 +32,12 @@ function App() {
       <Message text={message} />
 
       <p className="text-blue-600">{message}</p>
+
+      {time && (
+        <p className="text-gray-700 mt-2" data-testid="server-time">Server time: {time}</p>
+      )}
+
+
 
     </div>
   );

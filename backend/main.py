@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime
 
 from pathlib import Path
 import json
@@ -42,4 +43,11 @@ def get_llm_data():
 @app.get("/api/message")
 def read_message():
     return {"message": "Hello from FastAPI"}
+
+
+
+@app.get("/api/time")
+def get_time():
+    """Return the current server time in ISO format."""
+    return {"time": datetime.utcnow().isoformat() + "Z"}
 
