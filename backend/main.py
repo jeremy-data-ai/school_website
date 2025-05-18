@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from pathlib import Path
 import json
+=======
+
 
 app = FastAPI()
 
@@ -12,6 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 DATA_DIR = Path(__file__).parent / "data"
 MESSAGE_FILE = DATA_DIR / "message.json"
@@ -34,3 +38,8 @@ def read_message():
 @app.get("/api/llm-data")
 def get_llm_data():
     return load_json(LLM_FILE)
+=======
+@app.get("/api/message")
+def read_message():
+    return {"message": "Hello from FastAPI"}
+
