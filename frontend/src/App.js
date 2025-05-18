@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
+import Message from './components/Message';
+import { fetchMessage } from './api';
+
+
 function App() {
   const [message, setMessage] = useState('');
   const [time, setTime] = useState('');
 
   useEffect(() => {
+
+    fetchMessage()
+      .then(setMessage)
+
     fetch('/api/message')
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
+
       .catch((err) => console.error('Error fetching message', err));
 
     fetch('/api/time')
@@ -19,10 +28,17 @@ function App() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">School Website</h1>
+
+      <Message text={message} />
+
       <p className="text-blue-600">{message}</p>
+
       {time && (
         <p className="text-gray-700 mt-2" data-testid="server-time">Server time: {time}</p>
       )}
+
+
+
     </div>
   );
 }
