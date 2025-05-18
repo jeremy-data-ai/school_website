@@ -6,6 +6,9 @@ backend/__pycache__/
 
 # Build outputs
 frontend/build
+nextjs/node_modules
+nextjs/.next
+nextjs/out
 
 # Docker artifacts
 *.pyc
